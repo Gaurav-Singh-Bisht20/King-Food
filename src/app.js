@@ -10,10 +10,15 @@ import { createBrowserRouter,Outlet,RouterProvider } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Notification from "./components/Notification";
 import Profile from "./components/Profile";
+import useOnline from "./utils/useOnline";
+
 
 
 
 const AppLayout=()=>{
+  
+  const isonline=useOnline();
+  if(!isonline)return <h1>Check your internet conection</h1>
     return (
         <>
         <Header />

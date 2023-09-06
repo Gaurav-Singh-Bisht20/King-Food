@@ -8,15 +8,16 @@ import useRestaurant from '../utils/useRestaurant';
 const RestaurantMenu = () => {
     const param= useParams();
     const {resId}=param;
+    console.log(resId);
     const restaurant =useRestaurant(resId);
     
    
   return (!restaurant)?<Shimmer/>: (
     <div className='restaurantDetails container'>
         <div className='RestaurantMenuCard'>
-            <img src={IMG_CDN_URL+restaurant.cloudinaryImageId}/>
+            <img src={IMG_CDN_URL+"p84jrjty8ktstt80fqgh"}/>
             <h1>{restaurant.name}</h1>
-            <h2>restaurant id{id}</h2>
+            <h2>restaurant id{resId}</h2>
 
         </div>
         {/* <div className='Menu'>

@@ -1,7 +1,8 @@
 import { useState , useEffect } from "react";
-import {RestaurantList} from"../config"
+// import {RestaurantList} from"../config"
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+// import useOnline from "../utils/useOnline";
 
 
 
@@ -24,6 +25,7 @@ const Body=()=>{
     useEffect(()=>{
         getRestaurants();
     },[]);
+
 
     async function getRestaurants(){
         const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.351793&lng=78.0095493&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
