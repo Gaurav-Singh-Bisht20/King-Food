@@ -1,8 +1,7 @@
 import { useState , useEffect } from "react";
-// import {RestaurantList} from"../config"
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
-// import useOnline from "../utils/useOnline";
+
 
 
 
@@ -50,7 +49,7 @@ const Body=()=>{
                 }}>search</button>
                 </div>
             </div>
-            <div className="cardContainer container">{
+            <div className="flex flex-wrap gap-20 ml-16">{
             restaura.map((Restaurant)=>  {
             return <RestaurantCard {...Restaurant.info} {...RestaurantCard.id}/>
             })}
