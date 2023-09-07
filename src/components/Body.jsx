@@ -1,20 +1,8 @@
 import { useState , useEffect } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
+import { FilterRestaura } from "../config";
 
-
-
-
-function filterRestaura(searchInput,allrestaura){
-     const filterData=allrestaura.filter((res)=>{
-        // console.log(res.info.name)
-        return res?.info?.name?.toLowerCase()?.includes(searchInput.toLowerCase());
-        // console.log(searchInput);
-        // console.log(res);
-    })
-    
-    return filterData;
-};
 
 const Body=()=>{
     const [allrestaura,setallrestaura]=useState([]);
@@ -37,16 +25,16 @@ const Body=()=>{
     if(restaura?.length===0 && allrestaura?.length !== 0)return <h1>No matching restaura found....please go back</h1>
     return allrestaura?.length  === 0 ? <Shimmer /> : (
         <div>
-            <div className="search-box container">
-                <div className="location-box">location - clock-tower, dehradun,uk</div>
+            <div className="flex my-8 mx-16 justify-between bg-slate-300 py-5 px-4">
+                <div className="bg-white px-3 rounded-md">location - clock-tower, dehradun,uk</div>
                 <div className="search-box-items">
-                <input type="text" className="input-text" placeholder="search" value={searchInput} onChange={(e)=>{
-                    setSearchInput(e.target.value);
-                }}/>
-                <button className="search-btn" onClick={()=>{
-                    const data=filterRestaura(searchInput,allrestaura);
-                    setRestaura(data);
-                }}>search</button>
+                    <input type="text" className="p-1 rounded-md " placeholder="search" value={searchInput} onChange={(e)=>{
+                        setSearchInput(e.target.value);
+                    }}/>
+                    <button className="ml-5 bg-slate-500 text-white px-3 rounded-md p-1 " onClick={()=>{
+                        const data=FilterRestaura(searchInput,allrestaura);
+                        setRestaura(data);
+                    }}>search</button>
                 </div>
             </div>
             <div className="flex flex-wrap gap-20 ml-16">{
