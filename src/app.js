@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { Children, useState,useContext } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -11,19 +11,25 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Notification from "./components/Notification";
 import Profile from "./components/Profile";
 import useOnline from "./utils/useOnline";
-
+import Section from "./components/Accodian";
+import userContext from "./utils/userContext";
 
 
 
 const AppLayout=()=>{
-  
+  const[user,setUser]=useState({
+    name:"gaurav",
+    emial:"gaurav@gmail.com"
+  })
   const isonline=useOnline();
   if(!isonline)return <h1>Check your internet conection</h1>
     return (
         <>
+        <userContext.Provider value={{user:user,setUser:setUser}}>
         <Header />
         <Outlet/>
         <Footer/>
+        </userContext.Provider>
         </>
     )
 }
@@ -44,6 +50,11 @@ const AppRouter = createBrowserRouter([
           errorElement:<Error/>
           }
         ]
+      },
+      {
+        path: '/Accodian',
+        element: <Section />,
+        errorElement: <Error />,
       },
       {
         path:`/classbase`,

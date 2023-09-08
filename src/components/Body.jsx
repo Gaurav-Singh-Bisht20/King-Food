@@ -1,13 +1,16 @@
-import { useState , useEffect } from "react";
+import { useState , useEffect,useContext} from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { FilterRestaura } from "../config";
+import userContext from "../utils/userContext";
+
 
 
 const Body=()=>{
     const [allrestaura,setallrestaura]=useState([]);
     const [restaura,setRestaura]=useState([]);
     const [searchInput,setSearchInput]=useState("kfc");
+    const {user,setUser}=useContext(userContext);
 
     useEffect(()=>{
         getRestaurants();
@@ -35,7 +38,12 @@ const Body=()=>{
                         const data=FilterRestaura(searchInput,allrestaura);
                         setRestaura(data);
                     }}>search</button>
+                   
                 </div>
+                <input className="bg-white w-52" value={user.name } onChange={
+                    e=>setUser({
+                    name: e.target.value
+                })}></input>
             </div>
             <div className="flex flex-wrap gap-20 ml-16">{
             restaura.map((Restaurant)=>  {
