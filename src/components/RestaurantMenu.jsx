@@ -9,22 +9,26 @@ const RestaurantMenu = () => {
     const param= useParams();
     const {resId}=param;
     console.log(resId);
-    const restaurant =useRestaurant(resId);
+    const [restaurant,menu] =useRestaurant(resId);
    
    
   return (!restaurant)?<Shimmer/>: (
-    <div className='restaurantDetails container'>
-        <div className='RestaurantMenuCard'>
+    <div className='flex justify-evenly mx-16 my-8'>
+        <div className='w-11/12 h-80 '>
            
-            <img src={IMG_CDN_URL+restaurant.cloudinaryImageId}/>
+            <img className='h-3/4 ' src={IMG_CDN_URL+restaurant.cloudinaryImageId}/>
             <h1>{restaurant.name}</h1>
             <h2>restaurant id{resId}</h2>
-            {/* <h3>{res</h3> */}
+           
 
         </div>
-        {/* <div className='Menu'>
-        {console.log(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.card?.card?.itemCards)}
-        </div> */}
+        <div className=''>
+          <h1>Menu</h1>
+          <ul>{
+              Object.values(menu).slice(0,20).map((item)=><li key={item.card.info.id} >{item.card.info.name}:{item.card.info.price}</li>)
+              }
+          </ul>
+        </div>
 
     </div>
   )

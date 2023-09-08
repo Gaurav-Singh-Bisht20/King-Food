@@ -12,14 +12,14 @@ const useRestaurant =(resId)=>{
         );
         const json = await data.json();
         setRestaurant(json.data.cards[0].card.card.info);
-        console.log(json.data.cards[0].card.card.info)
+        // console.log(json.data.cards[0].card.card.info)
         setMenu(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards);
-        console.log(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards);
+        // console.log(json.data.cards[2].groupedCard.cardGroupMap.REGULAR.cards[1].card.card.itemCards);
 
         
 
     }
-    return restaurant;
+    return [restaurant,menu];
 }
 
 export default useRestaurant;
