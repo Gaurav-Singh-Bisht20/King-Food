@@ -47,7 +47,7 @@ const Body=()=>{
             </div>
             <div className="flex flex-wrap gap-20 ml-16">{
             restaura.map((Restaurant)=>  {
-            return <RestaurantCard {...Restaurant.info} {...RestaurantCard.id}/>
+            return <RestaurantCard {...Restaurant.info} key={...Restaurant.info.id}/>
             })}
             
             </div>
