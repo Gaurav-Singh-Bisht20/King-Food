@@ -3,6 +3,7 @@ import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { FilterRestaura } from "../config";
 import userContext from "../utils/userContext";
+import { Link } from "react-router-dom";
 
 
 
@@ -46,8 +47,9 @@ const Body=()=>{
                 })}></input>
             </div>
             <div className="flex flex-wrap gap-20 ml-16">{
+            
             restaura.map((Restaurant)=>  {
-            return <RestaurantCard {...Restaurant.info} key={...Restaurant.info.id}/>
+            return( <Link to={"Restauant/"+ Restaurant.info.id} key={...Restaurant.info.id}><RestaurantCard {...Restaurant.info} /></Link>)
             })}
             
             </div>

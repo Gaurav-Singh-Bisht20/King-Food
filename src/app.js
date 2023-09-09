@@ -13,6 +13,10 @@ import Profile from "./components/Profile";
 import useOnline from "./utils/useOnline";
 import Section from "./components/Accodian";
 import userContext from "./utils/userContext";
+import SubFooter from "./components/SubFooter";
+import Store from "./utils/store";
+import { Provider } from "react-redux";
+import CartPage from "./components/CartPage";
 
 
 
@@ -24,13 +28,15 @@ const AppLayout=()=>{
   const isonline=useOnline();
   if(!isonline)return <h1>Check your internet conection</h1>
     return (
-        <>
+        <Provider store={Store}>
+        
         <userContext.Provider value={{user:user,setUser:setUser}}>
         <Header />
         <Outlet/>
         <Footer/>
+        <SubFooter/>
         </userContext.Provider>
-        </>
+        </Provider>
     )
 }
 const AppRouter = createBrowserRouter([
@@ -54,6 +60,11 @@ const AppRouter = createBrowserRouter([
       {
         path: '/Accodian',
         element: <Section />,
+        errorElement: <Error />,
+      },
+      {
+        path: '/cart',
+        element: <CartPage/>,
         errorElement: <Error />,
       },
       {

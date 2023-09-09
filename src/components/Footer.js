@@ -1,14 +1,10 @@
-import { useContext } from "react";
-import userContext from "../utils/userContext";
-
+import React from "react";
 const Footer=()=>{
-    const {user}=useContext(userContext);
+    
     return(
-    <div className=" footer">
-        <div className="footer-items container">
+    <div className=" flex w-full h-52 bg-gray-700 mt-16 justify-center">
+        <div className="text-slate-50 text-4xl">
         <h1>footer</h1>
-        <h1>this is created by {user.name}</h1>
-
         </div>
     </div>
     )
