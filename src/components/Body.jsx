@@ -49,7 +49,7 @@ const Body=()=>{
             <div className="flex flex-wrap gap-20 ml-16">{
             
             restaura.map((Restaurant)=>  {
-            return( <Link to={"Restauant/"+ Restaurant.info.id} key={...Restaurant.info.id}><RestaurantCard {...Restaurant.info} /></Link>)
+            return( <Link to={"/Restaurant/"+ Restaurant.info.id} key={...Restaurant.info.id}><RestaurantCard {...Restaurant.info} /></Link>)
             })}
             
             </div>
