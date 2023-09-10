@@ -24,9 +24,9 @@ const Header= ()=>{
                     <li><Link to="/About">About</Link></li>
                     <li><Link >Wallet</Link></li>
                     <li><Link to="/cart" >
-                            <div className="flex gap-2">
+                            <div className="flex gap-2 ">
                                 <img className ='h-5' src="https://cdn-icons-png.flaticon.com/128/1170/1170576.png?ga=GA1.1.1309768789.1684076274"></img>
-                                <p>{cartItems.length}</p>
+                                <p data-testId="cart">{cartItems.length}</p>
                             </div>
                         </Link></li>
                 </ul>

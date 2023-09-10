@@ -17,7 +17,7 @@ const CartPage = () => {
   return cartItems.length>0?(
     <div className='flex w-11/12 bg-slate-50 mx-20 my-10 py-10 justify-between'>
         <div className='flex flex-col gap-3 justify-around'>
-            <h1 className='mx-20  p-2 bg-gray-300'>cart items-{cartItems.length}</h1>
+            <h1 className='mx-20  p-2 bg-gray-300 text-center'>cart items-{cartItems.length}</h1>
             {cartItems.length>0?<button className='bg-red-500 p-2 rounded-sm mx-20 ' onClick={(item)=>clearCartItem()}>clear cart</button>:<p className='p-2 rounded-sm mx-20 bg-blue-400'>Cart is empty</p>}
             <div className='flex flex-col gap-3 '>{
                 cartItems.map((item)=> <CartCard {...(item?.card?.info)}/>)

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { IMG_CDN_URL } from '../config';
-import { json, useParams } from 'react-router-dom'
+import {  useParams } from 'react-router-dom'
 import Shimmer from './Shimmer';
 import useRestaurant from '../utils/useRestaurant';
 import { addItem } from '../utils/sliceCart';
 import { useDispatch } from 'react-redux';
+
 
 
 const RestaurantMenu = () => {
@@ -36,11 +37,12 @@ const RestaurantMenu = () => {
         
         <div className=''>
           <h1 className='p-4 m-5 bg-yellow-200'>Menu</h1>
-          <ul>{
+          <ul>{menu===null?<Shimmer/>:(
               Object.values(menu)?.slice(0,20).map((item)=><li className ="flex justify-between items-center" key={item.card.info.id} >{item.card.info.name}  - <button className='p-2 m-5 bg-green-500' onClick={()=>{
                 handleAddItem(item);
               }}>Add Item</button></li>)
-              }
+             )
+            }
           </ul>
         </div>
 
