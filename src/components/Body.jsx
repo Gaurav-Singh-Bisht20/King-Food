@@ -11,8 +11,6 @@ const Body=()=>{
     const [allrestaura,setallrestaura]=useState([]);
     const [restaura,setRestaura]=useState([]);
     const [searchInput,setSearchInput]=useState("kfc");
-    const {user,setUser}=useContext(userContext);// useContext is powerfull hook provided by react to get rid of by props drilling userContext is used for storing global varibles so that it can be passed any where in  the whole app
-
     useEffect(()=>{
         // useEffect is  react hook which is called after rendring the page , it can to two parameter 1st is fuction,2 is dependency array , any change in depency array will recall the useEffect method, we can put the things in which we want if this value change we need to call useEffect again, if the dependency array is empty useEffect will call only once,if we do not provide dependency array it call after render and after every rerender. so we generally put those things inside this which we needed once or needed when specific value change like API call
         getRestaurants();
@@ -33,7 +31,7 @@ const Body=()=>{
             <div className="flex my-8 mx-16 justify-between bg-slate-300 py-5 px-4">
                 <div className="bg-white px-3 rounded-md">location - clock-tower, dehradun,uk</div>
                 <div className="search-box-items">
-                    <input type="text" className="p-1 rounded-md " placeholder="search" value={searchInput} onChange={(e)=>{
+                    <input type="text" className="p-1 rounded-md w-96" placeholder="search" value={searchInput} onChange={(e)=>{
                         setSearchInput(e.target.value);
                     }}/>
                     <button className="ml-5 bg-slate-500 text-white px-3 rounded-md p-1 " onClick={()=>{
@@ -42,10 +40,7 @@ const Body=()=>{
                     }}>search</button>
                    
                 </div>
-                <input className="bg-white w-52" value={user.name } onChange={
-                    e=>setUser({
-                    name: e.target.value
-                })}></input>
+                 
             </div>
             <div className="flex flex-wrap gap-20 ml-16">{
             

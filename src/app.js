@@ -28,8 +28,7 @@ const AppLayout=()=>{
   const isonline=useOnline();
   if(!isonline)return <h1>Check your internet conection</h1>
     return (
-        <Provider store={Store}>
-        
+        <Provider store={Store}>  
         <userContext.Provider value={{user:user,setUser:setUser}}>
         <Header />
         <Outlet/>
