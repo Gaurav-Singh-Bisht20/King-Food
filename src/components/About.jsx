@@ -3,8 +3,8 @@ import { Outlet } from 'react-router-dom';
 
 const About = () => {
   return (
-    <div className='min-h-screen flex flex-col'>
-      <h1 className='flex-grow' >good evening</h1>
+    <div className=' flex  h-96 mt-2   bg-orange-100'>
+      <h1>hi</h1>
       <Outlet/>
     </div>
   )

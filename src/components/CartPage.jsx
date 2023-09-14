@@ -13,7 +13,7 @@ const CartPage = () => {
     const clearCartItem=()=>{
     dispatch(clearCart());
   }
-    console.log(cartItems);
+    
   return cartItems.length>0?(
     <div className='flex w-11/12 bg-slate-50 mx-20 my-10 py-10 justify-between'>
         <div className='flex flex-col gap-3 justify-around'>
