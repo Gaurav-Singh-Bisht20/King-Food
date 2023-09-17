@@ -5,10 +5,13 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "gh-pages -d build", 
+    "predeploy": "npm run build"
   },
   "author": "gaurav",
   "license": "ISC",
+  "homepage": "https://github.com/bishtgaurav12345/King-Food.git",
   "devDependencies": {
     "@babel/core": "^7.22.17",
     "@babel/preset-env": "^7.22.15",
@@ -17,6 +20,7 @@
     "babel-jest": "^29.6.4",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "buffer": "^6.0.3",
+    "gh-pages": "^6.0.0",
     "jest": "^29.6.4",
     "jest-environment-jsdom": "^29.6.4",
     "parcel": "^2.9.3",
