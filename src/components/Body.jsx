@@ -35,7 +35,14 @@ const Body=()=>{
         }
     }
     // console.log(restaura[0].info.name);
-    if (restaura?.length === 0 && allrestaura?.length !== 0)return <h1>No matching restaura found....please go back</h1>// if we fillterd all restaurant and no one is matching to search result  
+    if (restaura?.length === 0 && allrestaura?.length !== 0){
+    return (
+        <div className=" flex h-96 w-full bg-gray-50 ">
+        <img src="https://notebookstore.in/image/no-product-found.png" alt="" />
+       </div>)
+    }// if we fillterd all restaurant and no one is matching to search result  
+
+
     console.log("all restarua");
     return allrestaura?.length  === 0 ? <Shimmer /> : (
         <div>

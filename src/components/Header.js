@@ -22,7 +22,7 @@ const Header= ()=>{
                 <ul className=" flex gap-5  items-center">
                     <li><Link to="/">Home</Link></li> 
                     <li><Link to="/About">About</Link></li>
-                    <li><Link >Wallet</Link></li>
+                    <li><Link >Offers</Link></li>
                     <li><Link to="/cart" >
                             <div className="flex gap-2 ">
                                 <img className ='h-5' src="https://cdn-icons-png.flaticon.com/128/1170/1170576.png?ga=GA1.1.1309768789.1684076274"></img>
