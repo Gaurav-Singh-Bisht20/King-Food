@@ -15,16 +15,27 @@ const Body=()=>{
         getRestaurants();
     },[]);
 
-
+    
     async function getRestaurants(){
-        const data= await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.351793&lng=78.0095493&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");// API calling by fetch method
+        try{
+            const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.351793&lng=78.0095493&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");// API calling by fetch method
+        if(!data.ok){
+            throw new Error(`response is not ok ${data.status} - ${data.statusText}`)
+        }
         const json= await data.json();
+        const restaurants=json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+        if(!restaurants){
+            throw new Error(`No restaurants found in data`);
+        }
         // console.log(json);
-        setRestaura(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setallrestaura(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setRestaura(restaurants);
+        setallrestaura(restaurants);
+        }catch(error){
+            console.log("error occured  during fetching",error);
+        }
     }
     // console.log(restaura[0].info.name);
-    if(restaura?.length===0 && allrestaura?.length !== 0)return <h1>No matching restaura found....please go back</h1>// if we fillterd all restaurant and no one is matching to search result  
+    if (restaura?.length === 0 && allrestaura?.length !== 0)return <h1>No matching restaura found....please go back</h1>// if we fillterd all restaurant and no one is matching to search result  
     console.log("all restarua");
     return allrestaura?.length  === 0 ? <Shimmer /> : (
         <div>
@@ -44,7 +55,7 @@ const Body=()=>{
             </div>
             <div className="flex flex-wrap gap-20 ml-16">{
             
-            restaura.map((Restaurant)=>  {
+            restaura?.map((Restaurant)=>  {
             return( <Link to={"/Restaurant/"+ Restaurant.info.id} key={Restaurant.info.id}><RestaurantCard {...Restaurant.info} /></Link>)
             })}
             
