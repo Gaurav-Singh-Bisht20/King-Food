@@ -16,10 +16,10 @@ const Header= ()=>{
     const cartItems =useSelector((store)=>store.cart.item); // subscribing to redux store by useSelector hook which is provided by react-redux
     console.log(cartItems);
     return (
-        <div className="flex justify-between items-center px-20 bg-red-100 "> 
+        <div className="flex justify-between items-center px-20 bg-orange-400 "> 
             <Title/>
             <div className=" flex gap-28 ">
-                <ul className=" flex gap-5  items-center">
+                <ul className=" flex gap-5  items-center text-zinc-50 text-lg font-semibold">
                     <li><Link to="/">Home</Link></li> 
                     <li><Link to="/About">About</Link></li>
                     <li><Link >Offers</Link></li>
@@ -31,7 +31,7 @@ const Header= ()=>{
                         </Link></li>
                 </ul>
             
-            <div className=" flex gap-5 item-center ">
+            <div className=" flex gap-5 item-center   text-zinc-50 text-lg font-semibold">
             {
                 /* conditional rending of login button based on isLoggenIn status */
                 isLoggedIn ?(<button onClick={()=>setLoggedIn(false)}>logout</button>):(<button onClick={()=>setLoggedIn(true)}>login</button>)
