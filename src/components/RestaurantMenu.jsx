@@ -14,6 +14,9 @@ const RestaurantMenu = () => {
     console.log(resId);
     const [restaurant,menu] =useRestaurant(resId);
 
+    console.log("this is resta",restaurant);
+    console.log(menu);
+
     const dispatch=useDispatch();
 
     const handleAddItem=(item)=>{
@@ -33,26 +36,24 @@ const RestaurantMenu = () => {
             }}>Add Item</button> */}
 
         </div>
-        
+        (
           
             <div className=''>
             <h1 className='p-4 m-5 bg-yellow-200'>Menu</h1>
-            <ul>
-              {menu === null ? <Shimmer /> :  (
+            <ul>{
                   Object.values(menu)?.slice(0, 20).map((item) => (
-                    <li className="flex justify-between items-center" key={item.card.info.id}>
-                      {item.card.info.name} - 
+                    <li className="flex justify-between items-center" key={item?.card?.info?.id}>
+                      {item?.card?.info?.name} - 
                       <button className='p-2 m-5 bg-green-500' onClick={() => { handleAddItem(item); }}>
                         Add Item
                       </button>
                     </li>
                   ))
-                )
               }
             </ul>
-          </div>
+          </div>)
 
-
+            
     </div>
   )
 }

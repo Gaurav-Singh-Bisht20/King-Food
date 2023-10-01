@@ -16,7 +16,7 @@ const Header= ()=>{
     const cartItems =useSelector((store)=>store.cart.item); // subscribing to redux store by useSelector hook which is provided by react-redux
     console.log(cartItems);
     return (
-        <div className="flex justify-between items-center px-20 bg-orange-400 "> 
+        <div className="flex justify-between items-center px-20 bg-orange-400 " > 
             <Title/>
             <div className=" flex gap-28 ">
                 <ul className=" flex gap-5  items-center text-zinc-50 text-lg font-semibold">
@@ -25,7 +25,7 @@ const Header= ()=>{
                     <li><Link >Offers</Link></li>
                     <li><Link to="/cart" >
                             <div className="flex gap-2 ">
-                                <img className ='h-5' src="https://cdn-icons-png.flaticon.com/128/1170/1170576.png?ga=GA1.1.1309768789.1684076274"></img>
+                            <img width="32" height="32" src="https://img.icons8.com/cute-clipart/64/shopping-cart-loaded.png" alt="shopping-cart-loaded"/>
                                 <p data-testid="cart">{cartItems.length}</p>
                             </div>
                         </Link></li>

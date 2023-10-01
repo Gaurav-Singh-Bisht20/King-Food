@@ -46,8 +46,7 @@ const Body=()=>{
     console.log("all restarua");
     return allrestaura?.length  === 0 ? <Shimmer /> : (
         <div>
-            <div className="flex my-8 mx-16 justify-between bg-slate-300 py-5 px-4">
-                <div className="bg-white px-3 rounded-md">location - clock-tower, dehradun,uk</div>
+            <div className="flex flex-col my-8 mx-16 justify-between bg-slate-300 py-5 px-4 sm:flex-col">
                 <div className="search-box-items">
                     <input type="text" className="p-1 rounded-md w-96" placeholder="search" value={searchInput} onChange={(e)=>{
                         setSearchInput(e.target.value);
@@ -58,7 +57,7 @@ const Body=()=>{
                     }}>search</button>
                    
                 </div>
-                 
+                <div className="bg-white px-3 rounded-md">location - clock-tower, dehradun,uk</div>
             </div>
             <div className="flex flex-wrap gap-20 ml-16">{
             
